@@ -1,3 +1,4 @@
+import joblib
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
@@ -50,3 +51,11 @@ predictions = model.predict(X_test_math)
 score = accuracy_score(y_test, predictions)
 
 print(f"Final Accuracy Score: {score * 100:.2f}%")
+print("Freezing the AI brain...")
+
+# Save the trained ML Model
+joblib.dump(model, 'fake_news_model.pkl')
+#Save the Word Counter (so it remembers the exact math dictionary)
+joblib.dump(counter, 'word_counter.pkl')
+
+print("Brain successfully saved to your folder! 🧠")
